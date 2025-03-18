@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.voxcom.noteitup"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.voxcom.noteitup"
         minSdk = 25
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
