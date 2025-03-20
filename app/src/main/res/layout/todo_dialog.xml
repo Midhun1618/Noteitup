@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/blueborder">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/close_dilog"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/baseline_close_24"
+            android:background="@color/transparent"/>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/todoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What's new !"
+            android:padding="10dp"
+            android:background="@drawable/blueborder"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/label_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label "
+            android:textSize="12dp"
+            android:padding="3dp"
+            android:textColor="@color/greyfont"
+            android:fontFamily="@font/caveatfont"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/labelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/bluedark"
+            android:foreground="@drawable/blueborder"/>
+
+        <Button
+            android:id="@+id/addTodo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/bluedark"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/darkbluebutton"/>
+    </LinearLayout>
+
+</LinearLayout>

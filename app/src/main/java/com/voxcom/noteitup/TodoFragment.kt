@@ -7,37 +7,45 @@ import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class TodoFragment : Fragment() {
+
+    private lateinit var todoAdapter: TodoAdapter
+    private val taskList = mutableListOf<Task>()
+
+    interface OnTodoAddedListener {
+        fun onTodoAdded(task: String, label: String)
+    }
+
+    var todoAddedListener: OnTodoAddedListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout and store it in a variable
-        val view = inflater.inflate(R.layout.fragment_todo, container, false)
-
-        return view // Return the correct view
+        return inflater.inflate(R.layout.fragment_todo, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val recyclerView: RecyclerView = view.findViewById(R.id.todoRecyclerView)
+        todoAdapter = TodoAdapter(taskList)
+        recyclerView.adapter = todoAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         val spinner: Spinner = view.findViewById(R.id.todoSort)
         val addButton: Button = view.findViewById(R.id.addTodo)
 
-        addButton.setOnClickListener{
+        addButton.setOnClickListener {
             click()
+            (activity as? MainActivity)?.showAddTodoDialog()
         }
 
-        // Set up the adapter
         val adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.sort_options,
@@ -58,40 +66,39 @@ class TodoFragment : Fragment() {
                 changedone()
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Do nothing
-            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
-
     }
+
+    fun addTaskToList(task: String, label: String) {
+        val newTask = Task(task, label)
+        taskList.add(newTask)
+        todoAdapter.notifyItemInserted(taskList.size - 1)
+    }
+
     private fun dropdown() {
         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.dropdown)
         mediaPlayer?.start()
-        mediaPlayer?.setOnCompletionListener { mp ->
-            mp.release()
-        }
+        mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
     }
 
     private fun changedone() {
         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.changedone)
         mediaPlayer?.start()
-        mediaPlayer?.setOnCompletionListener { mp ->
-            mp.release()
-        }
+        mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
     }
+
     private fun click() {
         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.clicked)
         mediaPlayer?.start()
         ontap()
-        mediaPlayer?.setOnCompletionListener { mp ->
-            mp.release()
-        }
+        mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
     }
+
     private fun ontap() {
         val vibrator = requireContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (vibrator.hasVibrator()) {
-            vibrator.vibrate(30) // Works on older Android versions
+            vibrator.vibrate(30)
         }
     }
-
 }
