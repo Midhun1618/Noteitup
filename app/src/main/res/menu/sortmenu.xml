@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/all"
+        android:title="All" />
+    <item
+        android:id="@+id/fav"
+        android:title="❤️"
+        />
+    <item
+        android:id="@+id/imp"
+        android:title="💎"/>
+    <item
+        android:id="@+id/free"
+        android:title="⏳"/>
+    <item
+        android:id="@+id/sos"
+        android:title="💀"/>
+</menu>

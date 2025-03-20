@@ -8,17 +8,56 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gridlinebg"
+        android:src="@drawable/dottedbg"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true" />
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/stickypage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="STICKY FRAG"
-        android:fontFamily="@font/caveatfont"
-        android:textStyle="bold"
-        android:textSize="50dp"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/stickybar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/addSticky"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="Add"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textColor="@color/bluedark"
+                android:fontFamily="@font/caveatfont"
+                android:textStyle="bold"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/white"
+                android:foreground="@drawable/blueborder"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/bluedark"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="STICKY FRAG"
+                android:fontFamily="@font/caveatfont"
+                android:textStyle="bold"
+                android:textSize="50dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </FrameLayout>
