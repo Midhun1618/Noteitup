@@ -1,6 +1,9 @@
 package com.voxcom.noteitup
 
+import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Vibrator
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         loadFragment(fragments[currentFragmentIndex])
 
         fragmentChange.setOnClickListener {
+            vibratePhone()
+            playAudio()
             currentFragmentIndex = (currentFragmentIndex + 1) % fragments.size
             fragmentChange.text = fragmentNames[currentFragmentIndex]
             loadFragment(fragments[currentFragmentIndex])
@@ -33,6 +38,19 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainer, fragment)
         transaction.commit()
+    }
+    private fun vibratePhone() {
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (vibrator.hasVibrator()) {
+            vibrator.vibrate(80) // Works on older Android versions
+        }
+    }
+    private fun playAudio() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.fragmentchangesfx)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { mp ->
+            mp.release()
+        }
     }
 
 }
