@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:padding="15dp"
     android:orientation="vertical"
     android:background="@drawable/blueborder">
     <LinearLayout
@@ -22,35 +22,61 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/todoEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="What's new !"
-            android:padding="10dp"
-            android:background="@drawable/blueborder"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blueborder"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/todoEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="What's new !"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+
+        </LinearLayout>
+        <com.voxcom.noteitup.FilledButton
+            android:id="@+id/labelButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:text="🖇️"
+            android:textStyle="bold"
+            android:fontFamily="@font/caveatfont"
+            android:background="@drawable/blueborder_circle"
+            android:textColor="@color/bluedark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/label_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Label "
-            android:textSize="12dp"
+            android:fontFamily="@font/caveatfont"
             android:padding="3dp"
+            android:text="Let's do it! "
             android:textColor="@color/greyfont"
-            android:fontFamily="@font/caveatfont"/>
+            android:textSize="15dp" />
 
     </LinearLayout>
 
@@ -58,27 +84,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end"
+        android:gravity="center"
         android:paddingTop="10dp">
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/blueborder_circle"
+            android:gravity="center"
+            android:layout_marginEnd="5dp">
 
-        <Button
-            android:id="@+id/labelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Label"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/bluedark"
-            android:foreground="@drawable/blueborder"/>
+            <com.voxcom.noteitup.FilledButton
+                android:id="@+id/notifyBox"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/notifications_inactive"
+                android:textColor="@color/bluedark" />
 
-        <Button
+        </LinearLayout>
+
+        <com.voxcom.noteitup.FilledButton
             android:id="@+id/addTodo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
             android:text="Add"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:fontFamily="@font/caveatfont"
             android:textColor="@color/white"
-            android:backgroundTint="@color/bluedark"
-            android:layout_marginStart="10dp"
             android:background="@drawable/darkbluebutton"/>
+
     </LinearLayout>
 
 </LinearLayout>
