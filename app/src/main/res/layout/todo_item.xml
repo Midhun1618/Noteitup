@@ -15,13 +15,18 @@
             android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="X"/>
+            android:text="X"
+            android:shadowColor="@color/black"/>
 
         <TextView
+            android:gravity="center_vertical"
             android:id="@+id/itaskText"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:textSize="18sp"/>
+            android:textSize="25sp"
+            android:fontFamily="@font/caveatfont"
+            android:textStyle="bold"
+            android:textColor="@color/bluedark"/>
 
     </LinearLayout>
     <LinearLayout

@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             val task = editText.text.toString().trim()
             if (task.isNotEmpty()) {
                 (supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? TodoFragment)?.addTaskToList(
-                    task, selectedLabelText.text.toString()
+                    task, selectedLabelText.toString()
                 )
                 dialog.dismiss()
             }
@@ -112,12 +112,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLabelSelectionDialog(selectedLabelText: TextView) {
         val labels = arrayOf("None", "❤️", "💎", "⏳", "💀")
+        val messages = arrayOf(
+            "Don't forget to complete it!",
+            "Remember, it's your favourite task!",
+            "Important task: do it in 6 hours!",
+            "Do it whenever you are free.",
+            "Urgent task: only 2 hours left."
+        )
+
         AlertDialog.Builder(this)
             .setTitle("Select Label")
             .setItems(labels) { _, which ->
-                selectedLabel = labels[which]
-                selectedLabelText.text = "Label: $selectedLabel"
+                selectedLabel = which.toString()
+                selectedLabelText.text = messages[which]
             }
             .show()
     }
+
 }

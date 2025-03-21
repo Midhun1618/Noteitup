@@ -59,7 +59,7 @@
                 android:textStyle="bold"
                 android:layout_margin="2dp"
                 android:backgroundTint="@color/white"
-                android:foreground="@drawable/blueborder"/>
+                android:foreground="@drawable/blueborder_alphafill"/>
         </LinearLayout>
 
         <FrameLayout

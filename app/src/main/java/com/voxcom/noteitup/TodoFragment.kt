@@ -16,6 +16,9 @@ class TodoFragment : Fragment() {
 
     private lateinit var todoAdapter: TodoAdapter
     private val taskList = mutableListOf<Task>()
+    private lateinit var todoSort: Button
+    private var currentSortIndex = 0
+    private val sortItems = arrayOf("All", "❤️", "💎", "⌛", "💀")
 
     interface OnTodoAddedListener {
         fun onTodoAdded(task: String, label: String)
@@ -34,39 +37,26 @@ class TodoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.todoRecyclerView)
+        todoSort = view.findViewById(R.id.todoSort) // Replacing Spinner with Button
+        val addButton: Button = view.findViewById(R.id.addTodo)
+
         todoAdapter = TodoAdapter(taskList)
         recyclerView.adapter = todoAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val spinner: Spinner = view.findViewById(R.id.todoSort)
-        val addButton: Button = view.findViewById(R.id.addTodo)
+        todoSort.text = sortItems[currentSortIndex] // Set initial text
 
         addButton.setOnClickListener {
             click()
             (activity as? MainActivity)?.showAddTodoDialog()
         }
 
-        val adapter = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.sort_options,
-            R.layout.sort_items
-        )
-        adapter.setDropDownViewResource(R.layout.sort_items)
-        spinner.adapter = adapter
+        todoSort.setOnClickListener {
+            changedone()
+            currentSortIndex = (currentSortIndex + 1) % sortItems.size
+            todoSort.text = sortItems[currentSortIndex]
+            sortTodoList(sortItems[currentSortIndex])
 
-        spinner.setOnTouchListener { _, _ ->
-            dropdown()
-            false
-        }
-
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = parent.getItemAtPosition(position).toString()
-                Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
-                changedone()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
 
@@ -74,6 +64,14 @@ class TodoFragment : Fragment() {
         val newTask = Task(task, label)
         taskList.add(newTask)
         todoAdapter.notifyItemInserted(taskList.size - 1)
+    }
+
+    private fun sortTodoList(filter: String) {
+        if (filter == "All") {
+//            todoAdapter.resetList() // Show all items TODO(filtering adapter)
+        } else {
+//            todoAdapter.filterListByLabel(filter) TODO(filtering adapter)
+        }
     }
 
     private fun dropdown() {

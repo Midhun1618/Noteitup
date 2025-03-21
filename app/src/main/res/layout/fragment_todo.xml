@@ -30,7 +30,7 @@
                 android:layout_weight="3">
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/blueborder"
                     android:gravity="center"
                     android:layout_marginStart="25dp">
@@ -44,11 +44,19 @@
                     android:textColor="@color/bluedark"
                     android:fontFamily="@font/caveatfont"
                     android:layout_marginHorizontal="10dp"/>
-                        <Spinner
-                            android:id="@+id/todoSort"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"/>
+                    <Button
+                        android:id="@+id/todoSort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bluefont"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/caveatfont"
+                        android:foreground="@drawable/blueborder_alphafill"
+                        android:layout_margin="4dp"/>
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -62,7 +70,7 @@
                 <Button
                     android:id="@+id/addTodo"
                     android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:text="Add"
                     android:layout_gravity="center"
                     android:textSize="20dp"

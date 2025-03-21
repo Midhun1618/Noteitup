@@ -6,4 +6,5 @@
     <color name="bluedark">#FF060459</color>
     <color name="bluefont">#FF090494</color>
     <color name="greyfont">#595959</color>
+    <color name="cyclebuttonbg">#191C3FFF</color>
 </resources>
