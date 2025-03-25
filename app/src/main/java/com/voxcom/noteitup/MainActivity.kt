@@ -66,6 +66,18 @@ class MainActivity : AppCompatActivity() {
         val addButton: Button = dialogView.findViewById(R.id.addTodo)
         val closeButton: ImageButton = dialogView.findViewById(R.id.close_dilog)
 
+        val labelItems = arrayOf("🖇️", "❤️", "💎", "⌛", "💀")
+        var currentLabelIndex = 0
+        val messages = arrayOf(
+            "Don't forget to complete it!",
+            "Remember, it's your favourite task!",
+            "Important task: do it in 6 hours!",
+            "Do it whenever you are free.",
+            "Urgent task: only 2 hours left."
+        )
+
+        labelButton.text = labelItems[currentLabelIndex]
+
         val dialog = AlertDialog.Builder(this, R.style.TransparentDialog)
             .setView(dialogView)
             .create()
@@ -77,7 +89,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         labelButton.setOnClickListener {
-            showLabelSelectionDialog(selectedLabelText)
+            currentLabelIndex = (currentLabelIndex + 1) % labelItems.size
+            labelButton.text = labelItems[currentLabelIndex]
+            selectedLabelText.text = messages[currentLabelIndex]
         }
 
         addButton.setOnClickListener {

@@ -37,7 +37,7 @@ class TodoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.todoRecyclerView)
-        todoSort = view.findViewById(R.id.todoSort) // Replacing Spinner with Button
+        todoSort = view.findViewById(R.id.todoSort)
         val addButton: Button = view.findViewById(R.id.addTodo)
 
         todoAdapter = TodoAdapter(taskList)
