@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         // Monitor fragment changes and handle addTodo button inside TodoFragment
         supportFragmentManager.addOnBackStackChangedListener {
-            val todoFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? TodoFragment
+            val todoFragment =
+                supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? TodoFragment
             todoFragment?.view?.findViewById<Button>(R.id.addTodo)?.setOnClickListener {
                 showAddTodoDialog()
             }
@@ -92,15 +93,17 @@ class MainActivity : AppCompatActivity() {
             currentLabelIndex = (currentLabelIndex + 1) % labelItems.size
             labelButton.text = labelItems[currentLabelIndex]
             selectedLabelText.text = messages[currentLabelIndex]
+            pompom()
         }
 
         addButton.setOnClickListener {
             val task = editText.text.toString().trim()
             if (task.isNotEmpty()) {
                 (supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? TodoFragment)?.addTaskToList(
-                    task, selectedLabelText.toString()
+                    task, currentLabelIndex.toString()
                 )
                 dialog.dismiss()
+                itemadded()
             }
         }
 
@@ -126,23 +129,28 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.setOnCompletionListener { mp -> mp.release() }
     }
 
-    private fun showLabelSelectionDialog(selectedLabelText: TextView) {
-        val labels = arrayOf("None", "❤️", "💎", "⏳", "💀")
-        val messages = arrayOf(
-            "Don't forget to complete it!",
-            "Remember, it's your favourite task!",
-            "Important task: do it in 6 hours!",
-            "Do it whenever you are free.",
-            "Urgent task: only 2 hours left."
-        )
+    private fun addedSfx() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.dropdown)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { mp -> mp.release() }
+    }
 
-        AlertDialog.Builder(this)
-            .setTitle("Select Label")
-            .setItems(labels) { _, which ->
-                selectedLabel = which.toString()
-                selectedLabelText.text = messages[which]
-            }
-            .show()
+    private fun clicked() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.clicked)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { mp -> mp.release() }
+    }
+
+    private fun pompom() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.labelchange)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { mp -> mp.release() }
+    }
+
+    private fun itemadded() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.itemadded)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { mp -> mp.release() }
     }
 
 }

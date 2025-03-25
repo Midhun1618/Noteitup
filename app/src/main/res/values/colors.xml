@@ -4,6 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="wrapped_grey">#80808080</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="cyan50">#2500d0ff</color>
+    <color name="grey50">#15565780</color>
+    <color name="red50">#20ff082d</color>
+    <color name="fav50">#2000d0ff</color>
+    <color name="green50">#301cff1c</color>
+    <color name="yellow50">#30f0fc05</color>
     <color name="bluedark">#FF060459</color>
     <color name="bluefont">#FF090494</color>
     <color name="greyfont">#595959</color>

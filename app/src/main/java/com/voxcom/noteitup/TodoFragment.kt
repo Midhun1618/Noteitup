@@ -74,11 +74,6 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun dropdown() {
-        val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.dropdown)
-        mediaPlayer?.start()
-        mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
-    }
 
     private fun changedone() {
         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.changedone)
@@ -98,5 +93,11 @@ class TodoFragment : Fragment() {
         if (vibrator.hasVibrator()) {
             vibrator.vibrate(30)
         }
+    }
+    private fun addedsfx() {
+        val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.dropdown)
+        mediaPlayer?.start()
+        ontap()
+        mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
     }
 }

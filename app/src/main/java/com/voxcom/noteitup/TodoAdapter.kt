@@ -19,9 +19,23 @@ class TodoAdapter(private val taskList: MutableList<Task>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
+        val labelsInn = arrayOf("🖇️", "❤️", "💎", "⏳", "💀")
+        val backgroundDrawables = arrayOf(
+            R.drawable.all_item,  // 0 - All
+            R.drawable.fav_item,  // 1 - Favorite
+            R.drawable.imp_item,  // 2 - Important
+            R.drawable.free_item, // 3 - Free Time
+            R.drawable.sos_item   // 4 - SOS
+        )
+
         val task = taskList[position]
+
         holder.taskText.text = task.title
-        holder.taskLabel.text = task.label
+        holder.taskLabel.text = labelsInn.getOrElse(task.label.toInt()) { "🖇️" } // Default to "🖇️"
+
+        // Set background dynamically
+        val backgroundRes = backgroundDrawables.getOrElse(task.label.toInt()) { R.drawable.all_item } // Default
+        holder.itemView.setBackgroundResource(backgroundRes)
     }
 
     override fun getItemCount(): Int = taskList.size
