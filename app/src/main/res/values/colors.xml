@@ -2,9 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="wrapped_grey">#80808080</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="bluedark">#FF060459</color>
     <color name="bluefont">#FF090494</color>
     <color name="greyfont">#595959</color>
     <color name="cyclebuttonbg">#191C3FFF</color>
+    <color name="gold">#ffc72b</color>
 </resources>

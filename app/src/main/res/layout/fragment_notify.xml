@@ -4,20 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotifyFragment">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gridlinebg"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gridlinebg"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="NOTIFY FRAG"
-        android:fontFamily="@font/caveatfont"
-        android:textStyle="bold"
-        android:textSize="50dp"/>
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapped_grey"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/premium"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Premium"
+            android:backgroundTint="@color/gold"
+            android:textStyle="bold"
+            android:fontFamily="@font/caveatfont"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+</LinearLayout>
 
 </FrameLayout>

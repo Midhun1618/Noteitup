@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SplashActivity"
-    android:background="@drawable/gridlinebg"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,11 +29,12 @@
             android:gravity="center">
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/splashAnimation"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                app:lottie_rawRes="@raw/splashanim"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:lottie_rawRes="@raw/animationss"
                 app:lottie_autoPlay="true"
-                app:lottie_loop="false"/>
+                app:lottie_loop="false"
+                android:foreground="@drawable/wrap_top"/>
 
 
         </LinearLayout>

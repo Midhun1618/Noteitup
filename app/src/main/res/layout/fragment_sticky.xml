@@ -12,33 +12,12 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true" />
 
-    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:id="@+id/stickypage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/stickybar"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/addSticky"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:text="Add"
-                android:layout_gravity="center"
-                android:textSize="20dp"
-                android:textColor="@color/bluedark"
-                android:fontFamily="@font/caveatfont"
-                android:textStyle="bold"
-                android:layout_margin="2dp"
-                android:backgroundTint="@color/white"
-                android:foreground="@drawable/blueborder"/>
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
@@ -46,15 +25,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="20dp">
-            <TextView
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="STICKY FRAG"
-                android:fontFamily="@font/caveatfont"
-                android:textStyle="bold"
-                android:textSize="50dp"/>
+                android:background="@color/wrapped_grey"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/premium"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:text="Premium"
+                    android:backgroundTint="@color/gold"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/caveatfont"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
