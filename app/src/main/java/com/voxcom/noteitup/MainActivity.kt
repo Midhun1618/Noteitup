@@ -66,9 +66,11 @@ class MainActivity : AppCompatActivity() {
         val addButton: Button = dialogView.findViewById(R.id.addTodo)
         val closeButton: ImageButton = dialogView.findViewById(R.id.close_dilog)
 
-        val dialog = AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this, R.style.TransparentDialog)
             .setView(dialogView)
             .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         closeButton.setOnClickListener {
             dialog.dismiss()
