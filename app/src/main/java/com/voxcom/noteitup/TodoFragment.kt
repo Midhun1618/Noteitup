@@ -7,10 +7,12 @@ import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class TodoFragment : Fragment() {
 
@@ -29,6 +31,7 @@ class TodoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         return inflater.inflate(R.layout.fragment_todo, container, false)
     }
@@ -40,9 +43,13 @@ class TodoFragment : Fragment() {
         todoSort = view.findViewById(R.id.todoSort)
         val addButton: Button = view.findViewById(R.id.addTodo)
 
+        taskList.addAll(loadTodos())
+
         todoAdapter = TodoAdapter(taskList)
         recyclerView.adapter = todoAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+
 
         todoSort.text = sortItems[currentSortIndex] // Set initial text
 
@@ -64,6 +71,7 @@ class TodoFragment : Fragment() {
         val newTask = Task(task, label)
         taskList.add(newTask)
         todoAdapter.notifyItemInserted(taskList.size - 1)
+        saveTodos(taskList)
     }
 
     private fun sortTodoList(filter: String) {
@@ -99,5 +107,20 @@ class TodoFragment : Fragment() {
         mediaPlayer?.start()
         ontap()
         mediaPlayer?.setOnCompletionListener { mp -> mp.release() }
+    }
+    private fun saveTodos(list: List<Task>) {
+        val sharedPreferences = requireContext().getSharedPreferences("ToDoPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val jsonString = Gson().toJson(list)  // Convert list to JSON
+        editor.putString("todos", jsonString)
+        editor.apply()
+    }
+
+    // ✅ Load tasks from SharedPreferences
+    private fun loadTodos(): MutableList<Task> {
+        val sharedPreferences = requireContext().getSharedPreferences("ToDoPrefs", Context.MODE_PRIVATE)
+        val jsonString = sharedPreferences.getString("todos", "[]")
+        val type = object : TypeToken<MutableList<Task>>() {}.type
+        return Gson().fromJson(jsonString, type) ?: mutableListOf()
     }
 }
