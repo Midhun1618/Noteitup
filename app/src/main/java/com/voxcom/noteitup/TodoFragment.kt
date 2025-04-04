@@ -15,9 +15,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class TodoFragment : Fragment() {
-
     private lateinit var todoAdapter: TodoAdapter
     private val taskList = mutableListOf<Task>()
+    private val completedTasks = mutableListOf<Task>()
     private lateinit var todoSort: Button
     private var currentSortIndex = 0
     private val sortItems = arrayOf("All", "❤️", "💎", "⌛", "💀")
@@ -43,9 +43,14 @@ class TodoFragment : Fragment() {
         todoSort = view.findViewById(R.id.todoSort)
         val addButton: Button = view.findViewById(R.id.addTodo)
 
+        taskList.clear()
         taskList.addAll(loadTodos())
 
-        todoAdapter = TodoAdapter(taskList)
+
+        todoAdapter = TodoAdapter(requireContext(), taskList, completedTasks)
+
+
+
         recyclerView.adapter = todoAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
