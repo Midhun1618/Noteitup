@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 class TodoAdapter(
     private val context: Context,
     private val taskList: MutableList<Task>,
-    private val completedTasks: MutableList<Task>
+    private val completedTasks: MutableList<Task>,
+    private val onTaskListUpdated: (List<Task>) -> Unit
 ) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,7 +50,9 @@ class TodoAdapter(
             val removedTask = taskList.removeAt(position)
             notifyItemRemoved(position)
             completedTasks.add(removedTask)
+            onTaskListUpdated(taskList)
         }
+
     }
 
     override fun getItemCount(): Int = taskList.size

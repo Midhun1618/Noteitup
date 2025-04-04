@@ -47,7 +47,14 @@ class TodoFragment : Fragment() {
         taskList.addAll(loadTodos())
 
 
-        todoAdapter = TodoAdapter(requireContext(), taskList, completedTasks)
+        todoAdapter = TodoAdapter(
+            requireContext(),
+            taskList,
+            completedTasks
+        ) { updatedList ->
+            saveTodos(updatedList)
+        }
+
 
 
 
