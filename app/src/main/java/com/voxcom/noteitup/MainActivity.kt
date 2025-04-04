@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
+    lateinit var settings : Button
     private var selectedLabel: String = "None"
     private lateinit var fragmentChange: Button
     private var currentFragmentIndex = 0
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        settings = findViewById(R.id.settingsButton)
         fragmentChange = findViewById(R.id.fragmentChange)
         fragmentChange.text = fragmentNames[currentFragmentIndex]
 
@@ -36,6 +38,12 @@ class MainActivity : AppCompatActivity() {
             currentFragmentIndex = (currentFragmentIndex + 1) % fragments.size
             fragmentChange.text = fragmentNames[currentFragmentIndex]
             loadFragment(fragments[currentFragmentIndex])
+        }
+        settings.setOnClickListener {
+            clicked()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer,SettingsFragment())
+                .commit()
         }
 
         // Monitor fragment changes and handle addTodo button inside TodoFragment

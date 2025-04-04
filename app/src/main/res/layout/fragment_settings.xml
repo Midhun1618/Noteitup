@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/blueborder">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/baseprofile"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="fill"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:background="@drawable/blueborder">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name : YourName"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/caveatfont"
+                        android:textSize="18sp"
+                        android:textColor="@color/bluedark"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Level : 001"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/caveatfont"
+                        android:textSize="18sp"
+                        android:textColor="@color/bluedark"
+                        android:paddingBottom="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Age : 021"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/caveatfont"
+                        android:textSize="18sp"
+                        android:textColor="@color/bluedark"
+                        android:paddingBottom="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/blueborder">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/blueborder">
+
+                    <com.voxcom.noteitup.SemiCircleProgressBar
+                        android:id="@+id/semiProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                    <com.voxcom.noteitup.FilledButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Clear tasks"
+                        android:fontFamily="@font/caveatfont"
+                        android:background="@drawable/darkbluebutton"
+                        android:padding="5dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <com.voxcom.noteitup.FilledButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Button1"
+                        android:fontFamily="@font/caveatfont"
+                        android:background="@drawable/darkbluebutton"
+                        android:padding="5dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <com.voxcom.noteitup.FilledButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Button2"
+                        android:fontFamily="@font/caveatfont"
+                        android:background="@drawable/darkbluebutton"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/blueborder">
+
+            <com.voxcom.noteitup.FilledButton
+                android:id="@+id/aboutDeveloper"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="About Developer"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:fontFamily="@font/caveatfont"
+                android:textColor="@color/white"
+                android:background="@drawable/darkbluebutton"
+                android:layout_margin="5dp"/>
+            <com.voxcom.noteitup.FilledButton
+                android:id="@+id/feedback"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Feedback"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:fontFamily="@font/caveatfont"
+                android:textColor="@color/white"
+                android:background="@drawable/darkbluebutton"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
